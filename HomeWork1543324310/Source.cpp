@@ -2,6 +2,7 @@
 #include<iostream>
 #include<cmath>
 #include<locale.h>
+#include<time.h>
 
 void Task1()
 {
@@ -81,19 +82,68 @@ void Task5()
 
 void Task6()
 {
-	int sec = 45900, h, m;
+	int sec = 0 + rand() % 86400;
+	int h, m;
 
 	h = (float)sec / 3600;
 	m = ((sec / 60) - h * 60);
-	printf("%d : %d \n\n", h, m);
+	printf("\nЭто %d ч : %d м \n\n", h, m);
 }
 
+void Task7()
+{
+	int a, b, n = 10 + rand() % 99;
+	printf("Случайное число %d \n\n", n);
 
+	a = n / 10;
+	b = n % 10;
+	printf("Десятки \"A\" : %d \n", a);
+	printf("Единицы \"B\" : %d \n\n", b);
+
+	if (n % 2 == 0)
+	{
+		printf("Данное число является четным двузначным\n\n");
+	}
+
+	if (a % 2 > 0 || b % 2 > 0)
+	{
+		printf("Ровно одно из чисел А и В нечетное\n\n");
+	}
+
+	if (a % 2 > 0 && b % 2 > 0)
+	{
+		printf("Каждое из чисел А и В нечетное\n\n");
+	}
+}
+
+void Task8()
+{
+	int N = 70;
+
+	printf("Число %d \n\n", N);
+	if (N % 2 == 0 && N % 7 == 0 && N % 11 > 0 && N % 13 > 0) { printf("Это число четное делится на 7, но не делится на 11 и 13 без остатка.\n\n"); }
+	else { printf("Это число не подходит к условию: четное, делится на 7, но не делится на 11 и 13 без остатка.\n\n"); }
+}
+
+void Task9()
+{
+	int N = 30;
+
+	printf("Число %d \n\n", N);
+	if (N % 2 != 0 && N % 7 == 0 && N % 11 > 0 && N % 13 > 0) { printf("\n\n"); }
+	else { printf("\n\n"); }
+}
+
+void Task10()
+{
+
+}
 
 int main()
 {
 	int t;
 	setlocale(LC_ALL, "");
+	srand(time(NULL));
 
 	printf("Введите номер задания =>");
 	scanf_s("%d", &t);
@@ -105,6 +155,12 @@ int main()
 	case 3: {Task3(); } break;
 	case 4: {Task4(); } break;
 	case 5: {Task5(); } break;
+	case 6: {Task6(); } break;
+	case 7: {Task7(); } break;
+	case 8: {Task8(); } break;
+	case 9: {Task9(); } break;
+	case 10: {Task10(); } break;
+
 		
 	default:
 		break;
